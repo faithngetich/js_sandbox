@@ -1,22 +1,56 @@
-const num1 = 100;
-const num2 = 50;
+const firstName = 'William';
+const lastName = 'Johnson';
+const age = 45;
+const str = 'Hey there lovely person';
+const tags = 'web design, web developement';
+
 let val;
 
-// Simple math with numbers
+val = firstName + lastName
 
-// MAth Object
-val = Math.PI;
-val = Math.E;
-val = Math.round(2.4);
-val = Math.ceil(2.4);
-val = Math.floor(2.6);
-val = Math.sqrt(2.6);
-val = Math.min(4,2.6);
-val = Math.abs(-2.6);
-val = Math.max(4.224,2.6);
-val = Math.random();
+// Concatrnation
+val = firstName + ' ' + lastName
 
-val = Math.random() * 20+1;
-val = Math.floor(Math.random() * 20+1);
+// Append
+val = 'Brad ';
+val += 'Traversy';
+
+val = 'Hello, my name is ' + firstName + 'and I am ' + age;
+
+// Escaping 
+val = 'That\'s awesome, I can\'t wait';
+
+// length
+val = firstName.length;
+
+// concat
+val = firstName.concat('', lastName);
+
+// Change case
+val = firstName.toUpperCase();
+
+val = firstName[0];
+
+// charAt()
+val = firstName.charAt('2');
+// Get last char
+val = firstName.charAt(firstName.length -1);
+
+// substring
+val = firstName.substring(0, 4);
+
+// s;ice
+val = firstName.slice(0,4);
+val = firstName.slice(-3);
+
+// slit()
+val = str.split(' ')
+val = tags.split(',')
+
+// replace
+val = str.replace('Hey', 'Faith');
+
+// includes()
+val = str.includes('Hey');
 
 console.log(val);
