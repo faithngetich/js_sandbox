@@ -1,12 +1,40 @@
-console.log('Hello World!');
-console.log(123);
-console.log(true);
-console.log({a:123, b:3});
-console.table({a:123, b:3});
-console.error({a:123, b:3});
-console.warn({a:123, b:3});
-console.time('Hello');
-  console.table({a:123, b:3});
-  console.error({a:123, b:3});
-  console.warn({a:123, b:3});
-console.timeEnd('Hello');
+let val;
+
+// Number to string
+val = String(555);
+val = String(4+4)
+
+// bool to string
+val = String(true);
+// Date to String
+val =  String(new Date());
+// Array to String
+val = String([4,24,4])
+
+// toString()
+val = (5).toString();
+val = (true).toString();
+
+// String to number
+val = Number('5');
+val = Number(true);
+val = Number(false);
+val = Number(null);
+val = Number('hello');
+val = Number([2,13,43]);
+
+val = parseInt('100.30');
+val = parseFloat('100.30');
+
+// Output
+// console.log(val);
+// console.log(typeof val);
+// // console.log(val.length);
+// console.log(val.toFixed(2));
+
+const val1 = String(5);
+const val2 = 6;
+const sum = val1 + val2
+
+console.log(sum);
+console.log(typeof sum);
