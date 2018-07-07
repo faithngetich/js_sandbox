@@ -1,47 +1,73 @@
-// function declarations
+// For loops
 
-function greet(firstName = 'john', lastName = 'Faith'){
-  // if(typeof firstName === 'undefined'){firstName = 'John'}
-  // if(typeof lastName === 'undefined'){lastName = 'Faith'}
-  // console.log('Hello');
-  return 'Hello ' + firstName + ' ' + lastName ;
+// for(let i = 0; i < 10; i++){
+//   // console.log(`Number ${i}`);
+//   if(i === 2){
+//     console.log(`Number ${i} is my favourite number`);
+//     continue;
+//   }
+
+//   if(i === 5){
+//     console.log('Stop the loop')
+//     break;
+//   }
+  
+//   console.log(`Number ${i}`);
+// }
+
+
+// While loop
+
+// let i = 0;
+
+// while(i < 10){
+//   console.log('Number ' + i);
+//   i++;
+// }
+
+// Do while
+
+// let i = 0;
+
+// do {
+//   console.log('Number ' + i);
+//   i++;
+// }
+
+// while(i < 10);
+
+// Loop Through Array
+const cars = ['Ford', 'Chevy', 'Honda', 'Toyota'];
+
+// for(let i = 0; i < cars.length; i++){
+//   console.log(cars[i]);
+// }
+
+// FOREACH
+// cars.forEach(function(car){
+//   console.log(car);
+// })
+
+// MAP
+// const users = [
+//   {id: 1, name: 'Faith'},
+//   {id: 2, name: 'Mashakura'},
+//   {id:3, name: 'KAren'}
+// ];
+
+// const ids = users.map(function(user){
+//   return user.id;
+// })
+
+// console.log(ids);
+
+// FOR IN LOOP
+const user = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 40
 }
 
-console.log(greet());
-
-// Function expressions
-
-const square = function(x = 4){
-  return x * x;
-};
-
-console.log(square());
-
-// Immidiately invokable function expressions - IIFEs
-
-// (function(){
-//   console.log('IIFE Ran..');
-// })();
-
-// (function(name){
-//   console.log( `Hello ${name}`);
-// })('Mashakura');
-
-// Property methods
-
-const todo = {
-  add: function(){
-    console.log('Add too..')
-  },
-  edit: function(id){
-    console.log(`Edit todo ${id}`)
-  }
+for(let x in user){
+  console.log(`${x} : ${user[x]}`);
 }
-
-todo.delete = function(){
-  console.log('Delete todo...')
-}
-
-todo.add();
-todo.edit(22);
-todo.delete();
