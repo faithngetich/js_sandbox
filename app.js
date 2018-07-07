@@ -1,41 +1,47 @@
-const color = 'red';
+// function declarations
 
-switch(color){
-  case 'red':
-    console.log('Color is red');
-    break;
-  case 'blue':
-    console.log('Color is blue');
-    break;
-  default:
-    console.log('Color is not red or blue');
-    break;
+function greet(firstName = 'john', lastName = 'Faith'){
+  // if(typeof firstName === 'undefined'){firstName = 'John'}
+  // if(typeof lastName === 'undefined'){lastName = 'Faith'}
+  // console.log('Hello');
+  return 'Hello ' + firstName + ' ' + lastName ;
 }
 
-let day;
+console.log(greet());
 
-switch(new Date().getDay()){
-  case 0:
-    day = 'Sunday';
-    break
-  case 1:
-    day = 'Monday';
-    break
-  case 2:
-    day = 'Tuesday';
-    break
-  case 3:
-    day = 'Wednesday';
-    break
-  case 4:
-    day = 'Thursday';
-    break
-  case 5:
-    day = 'Friday';
-    break
-  case 6:
-    day = 'Saturday';
-    break
+// Function expressions
+
+const square = function(x = 4){
+  return x * x;
+};
+
+console.log(square());
+
+// Immidiately invokable function expressions - IIFEs
+
+// (function(){
+//   console.log('IIFE Ran..');
+// })();
+
+// (function(name){
+//   console.log( `Hello ${name}`);
+// })('Mashakura');
+
+// Property methods
+
+const todo = {
+  add: function(){
+    console.log('Add too..')
+  },
+  edit: function(id){
+    console.log(`Edit todo ${id}`)
+  }
 }
 
-console.log(`Today is ${day}`);
+todo.delete = function(){
+  console.log('Delete todo...')
+}
+
+todo.add();
+todo.edit(22);
+todo.delete();
