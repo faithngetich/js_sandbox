@@ -1,73 +1,55 @@
-// For loops
+// WINDOW METHODS / OBJECTS /PROPERTIES
 
-// for(let i = 0; i < 10; i++){
-//   // console.log(`Number ${i}`);
-//   if(i === 2){
-//     console.log(`Number ${i} is my favourite number`);
-//     continue;
-//   }
+// ALert
+// alert('Hello world');
 
-//   if(i === 5){
-//     console.log('Stop the loop')
-//     break;
-//   }
-  
-//   console.log(`Number ${i}`);
+// Prompt
+// const input = prompt();
+// alert(input);
+
+//comfirm
+// if(confirm('Are you sure')){
+//   console.log('YES');
+// }else {
+//   console.log('NO');
 // }
 
+let val;
 
-// While loop
+// Outer height and width
+val = window.outerHeight;
+val = window.outerWidth;
 
-// let i = 0;
+// INner height and width
+val = window.innerHeight;
+val = window.innerWidth;
 
-// while(i < 10){
-//   console.log('Number ' + i);
-//   i++;
-// }
+// Scroll points
+val = window.scrollY;
+val = window.scrollX;
 
-// Do while
+// Location Object
+val = window.location;
+val = window.location.hostname;
+val = window.location.port;
+val = window.location.href;
+val = window.location.searchx;
 
-// let i = 0;
+// Redirect
+// window.location.href = 'http://google.com'
+// window.location.reload();
 
-// do {
-//   console.log('Number ' + i);
-//   i++;
-// }
+// History
+// window.history.go(-1);
+val = window.history.length;
 
-// while(i < 10);
+// Navigator Object
+val = window.navigator;
+val = window.navigator.appName;
+val = window.navigator.appVersion;
+val = window.navigator.userAgent;
+val = window.navigator.platform;
+val = window.navigator.vendor;
+val = window.navigator.language;
 
-// Loop Through Array
-const cars = ['Ford', 'Chevy', 'Honda', 'Toyota'];
-
-// for(let i = 0; i < cars.length; i++){
-//   console.log(cars[i]);
-// }
-
-// FOREACH
-// cars.forEach(function(car){
-//   console.log(car);
-// })
-
-// MAP
-// const users = [
-//   {id: 1, name: 'Faith'},
-//   {id: 2, name: 'Mashakura'},
-//   {id:3, name: 'KAren'}
-// ];
-
-// const ids = users.map(function(user){
-//   return user.id;
-// })
-
-// console.log(ids);
-
-// FOR IN LOOP
-const user = {
-  firstName: 'John',
-  lastName: 'Doe',
-  age: 40
-}
-
-for(let x in user){
-  console.log(`${x} : ${user[x]}`);
-}
+console.log(val);
