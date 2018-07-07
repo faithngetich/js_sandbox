@@ -1,27 +1,29 @@
-// Global scope
-var a = 1;
-let b = 2;
-const c = 3;
+let val;
 
-// function test(){
-//   var a = 4;
-//   let b = 5;
-//   const c = 6;
-//   console.log('Function Scope: ', a,b,c);
-// }
+val = document;
+val = document.all;
+val = document.all[2];
+val = document.all.length;
+val = document.head;
+val = document.body;
+val = document.domain;
+val = document.URL;
+val = document.contentType;
 
-// test();
+val = document.forms;
 
-// if(true){
-//   // Block Scope
-//   var a = 4;
-//   let b = 5;
-//   const c = 6;
-//   console.log('If Scope: ', a,b,c);
-// }
+val = document.links;
+val = document.links[0];
 
-// for(let a = 0; a < 10; a++){
-//   console.log(`Loop: ${a}`);
-// }
+val = document.images;
+val = document.scripts;
 
-console.log('Global Scope: ',a,b,c)
+let scripts = document.scripts;
+
+let scriptsArr = Array.from(scripts)
+
+scriptsArr.forEach(function(script){
+  console.log(script);
+});
+
+console.log(val);
