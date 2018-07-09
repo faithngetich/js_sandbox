@@ -1,59 +1,51 @@
+// REPLACE ELEMET
+// ================
+
+// Create Element
+const newHeading = document.createElement('h2');
+// Add id
+newHeading.id = 'task-title';
+// New text node
+newHeading.appendChild(document.createTextNode('Task List'));
+
+// Get the old heading
+const oldHeading = document.getElementById('task-title');
+// Parent
+const cardAction = document.querySelector('.card-action');
+
+// Replace
+// cardAction.replaceChild(newHeading, oldHeading);
+
+// REMOVE ELEMENT
+const lis = document.querySelectorAll('li');
+const list = document.querySelector('ul');
+
+// Remove list item
+lis[0].remove();
+
+// Remove child element
+// list.removeChild(lis[2]);
+
+// CLASSES & ATTR
+const firstLi = document.querySelector('li-first-child');
+const link = firstLi.children[0];
+
 let val;
 
-const list = document.querySelector('ul.collection');
-const listItem = document.querySelector('li.collection-item:first');
+// Classres
+val = link.className;
+val = link.classList;
+val = link.classList[0];
+link.classList.add('test');
+link.classList.remove('test');
+val = link;
 
-val = listItem;
-val = list;
-
-// Get child nodes
-val = list.childNodes;
-val = list.childNodes[0].nodeName;
-val = list.childNodes[3].nodeType;
-
-
-// 1 - Element
-// 2 - Attribute (deprecated)
-// 3 - Text node
-// 8 - Comment
-// 9 - Document itself
-// 10 - Doc Type
-
-
-// Get children elements nodes
-val = list.children;
-val = list.children[0];
-list.children[1].textContent = 'Hello';
-
-// children of children
-list.children[3].children[0].id = 'test-link'; 
-val = list.children[3].children;
-
-// First Child
-val = list.firstChild;
-val = list.firstElementChild;
-
-// last Child
-val = list.lastChild;
-val = list.lastElementChild;
-
-// Count child elements
-val = list.childElementCount;
-
-// Get parent node
-val = listItem.parentNode;
-val = listItem.parentElement;
-val = listItem.parentElement.parentElement;
-
-// Get next sibling
-val = listItem.nextSibling;
-val = listItem.nextElementSibling;
-val = listItem.nextElementSibling.nextElementSibling;
-
-// Get previos sibling
-// Get next sibling
-val = listItem.previousSibling;
-val = listItem.previousSibling;
-val = listItem.previousSibling.previousSibling;
+// Attributes
+val = link.getAttribute('href');
+val = link.setAttribute('href', 'http//google.com');
+link.setAttribute('title', 'Google');
+val = link.hasAttribute('href');
+link.removeAttribute('title');
+val = link;
 
 console.log(val);
