@@ -1,42 +1,41 @@
-const form = document.querySelector('form');
-const taskInput = document.getElementById('task');
-const heading = document.querySelector('h5');
-const select = document.querySelector('select');
+// EVENT BUBLING
 
-// Clear Input
-taskInput.value = '';
+// document.querySelector('.card-title').addEventListener('click',
+// function(){
+//   console.log('card-title');
+// });
 
-// form.addEventListener('submit', runEvent)
+// document.querySelector('.card-content').addEventListener('click',
+// function(){
+//   console.log('card content');
+// });
 
-// Keydown
-// taskInput.addEventListener('keydown', runEvent)
+// document.querySelector('.card').addEventListener('click',
+// function(){
+//   console.log('card');
+// });
 
-// Keyup
-// taskInput.addEventListener('keyup', runEvent)
+// document.querySelector('.col').addEventListener('click',
+// function(){
+//   console.log('col');
+// });
 
-// Keypress
-// taskInput.addEventListener('keypress', runEvent)
-// taskInput.addEventListener('focus', runEvent);
-// Blur
-// taskInput.addEventListener('blur', runEvent);
-// Cut
-// taskInput.addEventListener('cut', runEvent);
-// PAste
-// taskInput.addEventListener('paste', runEvent);
-// Input
-// taskInput.addEventListener('input', runEvent);
-// Change
-select.addEventListener('change', runEvent);
 
-function runEvent(e){
-  console.log(`EVENT TYPE: ${e.type}`);
+// EVENT DELGATION
 
-  console.log(e.target.value);
+// const delitem = document.querySelector('.delete-item');
 
-  // heading.innerText = e.target.value;
+// delitem.addEventListener('click', deleteITem);
 
-  // Get Input value
-  // console.log(taskInput.value);
+document.body.addEventListener('click', deleteITem);
 
-  // e.preventDefault();
+function deleteITem(e){
+  // if(e.target.parentElement.className === 'delete-item secondary-content'){
+  //   console.log('delete item');
+  // }
+
+  if(e.target.parentElement.classList.contains('delete-item')){
+    console.log('delete item');
+    e.target.parentElement.parentElement.remove();
+  }
 }
