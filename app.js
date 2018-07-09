@@ -1,29 +1,51 @@
-let val;
+// document.getElementsBYClassNAMe
 
-val = document;
-val = document.all;
-val = document.all[2];
-val = document.all.length;
-val = document.head;
-val = document.body;
-val = document.domain;
-val = document.URL;
-val = document.contentType;
+// const items = document.getElementsByClassName('collection-item');
+// console.log(items);
+// console.log(items[0]);
+// items[0].style.color = 'red';
+// items[3].textContent = 'Hello';
 
-val = document.forms;
+// const listItems = documents.querySelector('ul').getElementsByClassName('collection-item');
 
-val = document.links;
-val = document.links[0];
+// console.log(listItems)
 
-val = document.images;
-val = document.scripts;
 
-let scripts = document.scripts;
+// document.getElementsByTagNAme
+// let lis = document.getElementsByTagName('li');
+// console.log(lis);
+// console.log(lis[0]);
+// // lis[0].style.color = 'red';
+// // lis[3].textContent = 'Hello';
 
-let scriptsArr = Array.from(scripts)
+// // Convert HTML COllection to into Array
+// lis = Array.from(lis);
 
-scriptsArr.forEach(function(script){
-  console.log(script);
-});
+// lis.reverse();
 
-console.log(val);
+// lis.forEach(function(li){
+//   console.log(li.className)
+//   li.textContent = `${index}: Hello`;
+// })
+// console.log(lis);
+
+// document.querySelectorAll
+// ===========================
+const items = document.querySelector('ul.collection li.collection-item');
+
+items.forEach(function(item, index){
+  item.textContent = `${index}: Hello`;
+})
+
+const liOdd = document.querySelectorAll('li:nth-child(odd)');
+const liEven = document.querySelectorAll('li:nth-child(even)');
+
+liOdd.forEach(function(li, index){
+  li.style.background = '#ccc';
+})
+
+for(let i = 0; i < liEven.length; i++){
+  liEven[i].style.background = '#f4f4f4';
+}
+
+console.log(items)
