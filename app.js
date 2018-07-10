@@ -1,45 +1,33 @@
-// // set local storage item
-// localStorage.setItem('name', 'John');
-// localStorage.setItem('age', '30');
-
-// // set session storage item
-// sessionStorage.setItem('name', 'Beth');
-
-// remove from storage
-// localStorage.removeItem('name')
-
-// // get from storage
-// const name = localStorage.getItem('name');
-// const age = localStorage.getItem('age');
-
-// // clear local storage
-// localStorage.clear();
-
-// console.log(name, age);
-
-document.querySelector('form').addEventListener('submit',
-function(e){
-  const task = document.getElementById('task').value;
-
-  let tasks;
-
-  if(localStorage.getItem('tasks') === null) {
-    tasks = [];
-  } else {
-    tasks = JSON.parse(localStorage.getItem('tasks'));
+class Person {
+  constructor(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.birthday = new Date(dob);
   }
 
-  tasks.push(task);
+  greeting() {
+    return `Hello there ${this.firstName} ${this.lastName}`;
+  }
 
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  calculateAge() {
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
 
-  alert('Task saved')
+  getMarried(newLastName) {
+    this.lastName = newLastName;
+  }
 
-  e.preventDefault();
-})
+  static addNumbers(x, y) {
+    return x + y;
+  } 
+}
 
-const tasks = JSON.parse(localStorage.getItem('tasks'));
+const mary = new Person('Mary', 'williams', '11-13-1980');
 
-tasks.forEach(function(task){
-  console.log(task);
-})
+mary.getMarried('Thomd');
+
+console.log(mary);
+
+console.log(Person.addNumbers(1,2))
