@@ -1,45 +1,39 @@
-// // set local storage item
-// localStorage.setItem('name', 'John');
-// localStorage.setItem('age', '30');
+// Person constructor
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
 
-// // set session storage item
-// sessionStorage.setItem('name', 'Beth');
+// Greeting 
+Person.prototype.greeting = function(){
+  return `Hello there ${this.firstName} ${this.lastName}`;
+}
 
-// remove from storage
-// localStorage.removeItem('name')
+const person1 = new Person('John', 'Doe');
 
-// // get from storage
-// const name = localStorage.getItem('name');
-// const age = localStorage.getItem('age');
+console.log(person1.greeting())
 
-// // clear local storage
-// localStorage.clear();
+// Customer constructor
+function Customer(firstName, lastName, phone, membership){
+  Person.call(this, firstName, lastName);
 
-// console.log(name, age);
+  this.phone = phone;
+  this.membership = membership;
+}
 
-document.querySelector('form').addEventListener('submit',
-function(e){
-  const task = document.getElementById('task').value;
+// Inherit the Person prototype methods
+Customer.prototype = Object.create(Person.prototype);
 
-  let tasks;
+// Make customer.prototype return Customer()
+Customer.prototype.constructor = Customer;
 
-  if(localStorage.getItem('tasks') === null) {
-    tasks = [];
-  } else {
-    tasks = JSON.parse(localStorage.getItem('tasks'));
-  }
+// Create customer
+const customer1 = new Customer('Tom', 'Smith', '555-555-5555', 'standard');
 
-  tasks.push(task);
+// Customer greeting
+Customer.prototype.greeting = function(){
+  return `Hello there ${this.firstName} ${this.lastName} welcome to our company`;
+}
 
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-
-  alert('Task saved')
-
-  e.preventDefault();
-})
-
-const tasks = JSON.parse(localStorage.getItem('tasks'));
-
-tasks.forEach(function(task){
-  console.log(task);
-})
+console.log(customer1);
+console.log(customer1.greeting());
