@@ -1,45 +1,28 @@
-// // set local storage item
-// localStorage.setItem('name', 'John');
-// localStorage.setItem('age', '30');
+const personPrototypes = {
+  greeting: function() {
+    return `Hello there ${this.firstName} ${this.lastName}`;
+  },
 
-// // set session storage item
-// sessionStorage.setItem('name', 'Beth');
-
-// remove from storage
-// localStorage.removeItem('name')
-
-// // get from storage
-// const name = localStorage.getItem('name');
-// const age = localStorage.getItem('age');
-
-// // clear local storage
-// localStorage.clear();
-
-// console.log(name, age);
-
-document.querySelector('form').addEventListener('submit',
-function(e){
-  const task = document.getElementById('task').value;
-
-  let tasks;
-
-  if(localStorage.getItem('tasks') === null) {
-    tasks = [];
-  } else {
-    tasks = JSON.parse(localStorage.getItem('tasks'));
+  getsMarried: function(newLastName) {
+    this.lastName = newLastName;
   }
+}
 
-  tasks.push(task);
+const mary = Object.create(personPrototypes);
+mary.firstName = 'Mary';
+mary.lastName = 'Williams';
+mary.age = 30;
 
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+mary.getsMarried('Tha')
 
-  alert('Task saved')
+console.log(mary.greeting());
 
-  e.preventDefault();
-})
+const brad = Object.create(personPrototypes, {
+  firstName: {value: 'Brad'},
+  lastName: {value: 'Trave'},
+  age: {value: 22}
+});
 
-const tasks = JSON.parse(localStorage.getItem('tasks'));
+console.log(brad);
 
-tasks.forEach(function(task){
-  console.log(task);
-})
+console.log(brad.greeting());
