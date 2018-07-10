@@ -1,45 +1,42 @@
-// // set local storage item
-// localStorage.setItem('name', 'John');
-// localStorage.setItem('age', '30');
+// Object.prototype
+// Person.prototype
 
-// // set session storage item
-// sessionStorage.setItem('name', 'Beth');
+function Person(firstName, lastName, dob) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.birthday = new Date(dob);
+  // this.calculateAge = function(){
+  //   const diff = Date.now() - this.birthday.getTime();
+  //   const ageDate = new Date(diff);
+  //   return Math.abs(ageDate.getUTCFullYear() - 1970);
+  // }
+}
 
-// remove from storage
-// localStorage.removeItem('name')
+// Calculate age
+Person.prototype.calculateAge = function(){
+  const diff = Date.now() - this.birthday.getTime();
+  const ageDate = new Date(diff);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
 
-// // get from storage
-// const name = localStorage.getItem('name');
-// const age = localStorage.getItem('age');
+// Get full name
+Person.prototype.getFullName = function(){
+  return `${this.firstName} ${this.lastName}`;
+}
 
-// // clear local storage
-// localStorage.clear();
+// Gets Married
+Person.prototype.getsMarried = function(newLastname){
+  this.lastName = newLastname;
+}
 
-// console.log(name, age);
+const john = new Person('John', 'Doe', '8-12-90');
+const mary = new Person('Mary', 'Tet', 'March-20-2998');
 
-document.querySelector('form').addEventListener('submit',
-function(e){
-  const task = document.getElementById('task').value;
+console.log(mary);
+console.log(john.calculateAge());
+console.log(mary.getFullName());
+mary.getsMarried('Smith');
+console.log(mary.getFullName());
 
-  let tasks;
-
-  if(localStorage.getItem('tasks') === null) {
-    tasks = [];
-  } else {
-    tasks = JSON.parse(localStorage.getItem('tasks'));
-  }
-
-  tasks.push(task);
-
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-
-  alert('Task saved')
-
-  e.preventDefault();
-})
-
-const tasks = JSON.parse(localStorage.getItem('tasks'));
-
-tasks.forEach(function(task){
-  console.log(task);
-})
+console.log(mary.hasOwnProperty('firstName'));
+console.log(mary.hasOwnProperty('getFullName'));
