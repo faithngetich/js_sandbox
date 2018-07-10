@@ -1,45 +1,47 @@
-// // set local storage item
-// localStorage.setItem('name', 'John');
-// localStorage.setItem('age', '30');
+// String
 
-// // set session storage item
-// sessionStorage.setItem('name', 'Beth');
+const name1 = 'Jeff';
+const name2 = new String('Jeff');
 
-// remove from storage
-// localStorage.removeItem('name')
+// name2.foo = 'bar';
+// console.log(name2);
 
-// // get from storage
-// const name = localStorage.getItem('name');
-// const age = localStorage.getItem('age');
+console.log(typeof name2);
 
-// // clear local storage
-// localStorage.clear();
+if(name2 == 'Jeff'){
+  console.log('YES')
+}else{
+  console.log('noS')
+}
 
-// console.log(name, age);
+// Number
+const num1 = 5;
+const num2 = new Number(5);
 
-document.querySelector('form').addEventListener('submit',
-function(e){
-  const task = document.getElementById('task').value;
 
-  let tasks;
 
-  if(localStorage.getItem('tasks') === null) {
-    tasks = [];
-  } else {
-    tasks = JSON.parse(localStorage.getItem('tasks'));
-  }
+// Number
+const bool1 = true;
+const bool2 = new Boolean(true);
 
-  tasks.push(task);
+// Function
+const getSum1 = function(x, y){
+  return x + y
+}
 
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+const getSum2 = new Function('x', 'y', 'return 1 + 1');
 
-  alert('Task saved')
+// Object
+const john = {name: "John"};
+const John2 = new Object({name: "John"})
 
-  e.preventDefault();
-})
+// Arrays 
+const arr1 = [1,2,3,4];
+const arr2 = new Array(1,2,3,4)
 
-const tasks = JSON.parse(localStorage.getItem('tasks'));
+// Regular Expressions
+const re1 = /\w+/;
+const re2 = new RegExp('\\w+')
+console.log(re1);
+console.log(re2);
 
-tasks.forEach(function(task){
-  console.log(task);
-})
